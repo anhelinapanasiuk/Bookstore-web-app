@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+    <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html" class="active-link">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="login.html">Вхід</a>
+    </nav>
+</header>
+
+<main class="catalog-page">
+
+    <h1>Каталог книг</h1>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Пошук книги...">
+        <button type="button">⌕</button>
+    </div>
+
+    <div class="categories">
+        <button class="active" data-category="all">Усі</button>
+        <button data-category="classic">Класика</button>
+        <button data-category="poetry">Поезія</button>
+        <button data-category="drama">Драма</button>
+        <button data-category="modern">Сучасна проза</button>
+        <button data-category="shortprose">Новели та оповідання</button>
+    </div>
+
+    <section class="catalog-grid">
+
+        <div class="catalog-card" data-category="classic">
+            <img src="images/zahar-berkut.jpg" alt="Захар Беркут">
+            <h3>Захар Беркут</h3>
+            <p>Іван Франко</p>
+            <span>350 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="modern">
+            <img src="images/voroshylovhrad.jpg" alt="Ворошиловоград">
+            <h3>Ворошиловоград</h3>
+            <p>Сергій Жадан</p>
+            <span>450 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="classic">
+            <img src="images/tyhrolovy.png" alt="Тигролови">
+            <h3>Тигролови</h3>
+            <p>Іван Багряний</p>
+            <span>390 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="classic">
+            <img src="images/tini-zabutyh-predkiv.png" alt="Тіні забутих предків">
+            <h3>Тіні забутих предків</h3>
+            <p>Михайло Коцюбинський</p>
+            <span>320 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="drama">
+            <img src="images/mina-mazailo.png" alt="Мина Мазайло">
+            <h3>Мина Мазайло</h3>
+            <p>Микола Куліш</p>
+            <span>280 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="classic">
+            <img src="images/misto.png" alt="Місто">
+            <h3>Місто</h3>
+            <p>Валер’ян Підмогильний</p>
+            <span>410 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="drama">
+            <img src="images/lisova-pisnia.png" alt="Лісова пісня">
+            <h3>Лісова пісня</h3>
+            <p>Леся Українка</p>
+            <span>340 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="poetry">
+            <img src="images/kobzar.jpg" alt="Кобзар">
+            <h3>Кобзар</h3>
+            <p>Тарас Шевченко</p>
+            <span>500 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="shortprose">
+            <img src="images/kaminnyi-khrest.png" alt="Камінний хрест">
+            <h3>Камінний хрест</h3>
+            <p>Василь Стефаник</p>
+            <span>260 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="classic">
+            <img src="images/kaidasheva-simia.png" alt="Кайдашева сім’я">
+            <h3>Кайдашева сім’я</h3>
+            <p>Іван Нечуй-Левицький</p>
+            <span>330 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="shortprose">
+            <img src="images/intermezzo.png" alt="Intermezzo">
+            <h3>Intermezzo</h3>
+            <p>Михайло Коцюбинський</p>
+            <span>290 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+        <div class="catalog-card" data-category="classic">
+            <img src="images/hiba-revut-voly.png" alt="Хіба ревуть воли, як ясла повні?">
+            <h3>Хіба ревуть воли...</h3>
+            <p>Панас Мирний</p>
+            <span>470 грн</span>
+            <button>Додати в кошик</button>
+        </div>
+
+    </section>
+
+</main>
+
+<div class="toast" id="toast">
+    <p>✓ Книгу додано до кошика</p>
+    <a href="cart.html">Перейти до кошика</a>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+    <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="login.html">Вхід</a>
+    </nav>
+</header>
+
+<main class="auth-page">
+
+    <section class="auth-card">
+
+        <div class="auth-header">
+            <h1>Реєстрація</h1>
+            <p>
+                Створіть обліковий запис, щоб швидше оформлювати замовлення
+                та зберігати контактні дані.
+            </p>
+        </div>
+
+        <div class="auth-form">
+
+            <div class="form-group">
+                <label for="registerName">
+                    Ім’я <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Введіть ім’я"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="registerPhone">
+                    Номер телефону <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    value="+380"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="registerEmail">
+                    Email <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="example@gmail.com"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="registerPassword">
+                    Пароль <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Створіть пароль"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="registerPasswordRepeat">
+                    Повторіть пароль <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="password"
+                    id="registerPasswordRepeat"
+                    placeholder="Повторіть пароль"
+                >
+            </div>
+
+            <button class="auth-btn" id="registerBtn">
+                Зареєструватися
+            </button>
+
+            <p class="auth-switch">
+                Уже маєте акаунт?
+                <a href="login.html">Увійти</a>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div class="toast validation-toast" id="registerValidationToast">
+    <p>Заповніть усі обов’язкові поля</p>
+</div>
+
+<div class="toast validation-toast" id="registerPasswordToast">
+    <p>Паролі не збігаються</p>
+</div>
+
+<div class="toast validation-toast" id="registerExistsToast">
+    <p>Користувач із таким email уже зареєстрований</p>
+</div>
+
+<div class="toast" id="registerSuccessToast">
+    <p>✓ Реєстрацію успішно завершено</p>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

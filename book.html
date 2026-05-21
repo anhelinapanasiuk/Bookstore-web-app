@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книга | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+    <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="login.html">Вхід</a>
+    </nav>
+</header>
+
+<main class="book-details-page">
+
+    <section class="book-details-card" id="bookDetails">
+        <div class="book-loading">
+            <p>Завантаження інформації про книгу...</p>
+        </div>
+    </section>
+
+</main>
+
+<div class="toast" id="bookToast">
+    <p>✓ Книгу додано до кошика</p>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        const bookDetails = document.getElementById('bookDetails');
+        const params = new URLSearchParams(window.location.search);
+        const bookId = params.get('id');
+
+        function escapeBookHTML(value) {
+            return String(value || '')
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#039;');
+        }
+
+        function showBookToast(text) {
+            const toast = document.getElementById('bookToast');
+
+            if (!toast) return;
+
+            const paragraph = toast.querySelector('p');
+
+            if (paragraph) {
+                paragraph.textContent = text;
+            }
+
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3200);
+        }
+
+        function addBookToCart(book) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const preparedBook = {
+                title: book.title,
+                author: book.author || '',
+                price: `${Number(book.price).toFixed(0)} грн`,
+                image: book.image_url || '',
+                quantity: 1
+            };
+
+            const existingBook = cart.find(item => item.title === preparedBook.title);
+
+            if (existingBook) {
+                existingBook.quantity += 1;
+            } else {
+                cart.push(preparedBook);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            showBookToast(`✓ «${book.title}» додано до кошика`);
+        }
+
+        if (!bookId) {
+            bookDetails.innerHTML = `
+                <div class="book-not-found">
+                    <h1>Книгу не знайдено</h1>
+                    <p>Посилання містить некоректний номер книги.</p>
+                    <a href="catalog.html" class="secondary-btn">Повернутися до каталогу</a>
+                </div>
+            `;
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/books/${bookId}`);
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                bookDetails.innerHTML = `
+                    <div class="book-not-found">
+                        <h1>Книгу не знайдено</h1>
+                        <p>Можливо, цю позицію було видалено або посилання некоректне.</p>
+                        <a href="catalog.html" class="secondary-btn">Повернутися до каталогу</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const book = data.book;
+
+            const availabilityText =
+                Number(book.stock_quantity) > 0
+                    ? `У наявності: ${book.stock_quantity} шт.`
+                    : 'Наразі немає в наявності';
+
+            const availabilityClass =
+                Number(book.stock_quantity) > 0
+                    ? 'book-available'
+                    : 'book-unavailable';
+
+            bookDetails.innerHTML = `
+                <div class="book-details-image">
+                    <img
+                        src="${escapeBookHTML(book.image_url || 'images/library.jpg')}"
+                        alt="${escapeBookHTML(book.title)}"
+                    >
+                </div>
+
+                <div class="book-details-info">
+                    <p class="book-details-category">
+                        ${escapeBookHTML(book.category || 'Без категорії')}
+                    </p>
+
+                    <h1>${escapeBookHTML(book.title)}</h1>
+
+                    <p class="book-details-author">
+                        <strong>Автор:</strong> ${escapeBookHTML(book.author || 'Невідомий автор')}
+                    </p>
+
+                    <p class="book-details-price">
+                        ${Number(book.price).toFixed(0)} грн
+                    </p>
+
+                    <p class="${availabilityClass}">
+                        ${availabilityText}
+                    </p>
+
+                    <div class="book-details-description">
+                        <h3>Про книгу</h3>
+                        <p>
+                            ${escapeBookHTML(book.description || 'Опис для цієї книги поки відсутній.')}
+                        </p>
+                    </div>
+
+                    <div class="book-details-buttons">
+                        <button class="main-btn" id="addBookToCart">
+                            Додати до кошика
+                        </button>
+
+                        <a href="catalog.html" class="secondary-btn">
+                            Назад до каталогу
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            const addButton = document.getElementById('addBookToCart');
+
+            if (addButton) {
+                addButton.addEventListener('click', function () {
+                    addBookToCart(book);
+                });
+            }
+
+        } catch (error) {
+            console.error('Помилка завантаження книги:', error);
+
+            bookDetails.innerHTML = `
+                <div class="book-not-found">
+                    <h1>Помилка завантаження</h1>
+                    <p>Не вдалося отримати інформацію про книгу.</p>
+                    <a href="catalog.html" class="secondary-btn">Повернутися до каталогу</a>
+                </div>
+            `;
+        }
+    });
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

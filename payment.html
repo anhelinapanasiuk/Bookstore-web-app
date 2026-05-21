@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата замовлення | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+    <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+        <a href="login.html">Вхід</a>
+    </nav>
+</header>
+
+<main class="payment-v2-page">
+
+    <section class="payment-v2-wrapper">
+
+        <div class="payment-v2-left">
+            <p class="payment-v2-label">Оплата замовлення</p>
+
+            <h1>Безпечна оплата онлайн</h1>
+
+            <p class="payment-v2-intro">
+                Заповніть платіжні дані, щоб підтвердити покупку.
+                Після успішної оплати статус замовлення автоматично оновиться.
+            </p>
+
+            <div class="payment-v2-amount">
+                <span>До сплати</span>
+                <strong id="paymentAmount">0 грн</strong>
+            </div>
+
+            <div class="payment-v2-form">
+
+                <div class="payment-v2-field payment-v2-full">
+                    <label for="cardNumber">Номер картки</label>
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        placeholder="0000 0000 0000 0000"
+                        inputmode="numeric"
+                    >
+                </div>
+
+                <div class="payment-v2-row">
+                    <div class="payment-v2-field">
+                        <label for="cardExpiry">Термін дії</label>
+                        <input
+                            type="text"
+                            id="cardExpiry"
+                            placeholder="MM/YY"
+                            inputmode="numeric"
+                        >
+                    </div>
+
+                    <div class="payment-v2-field">
+                        <label for="cardCvv">CVV</label>
+                        <input
+                            type="password"
+                            id="cardCvv"
+                            placeholder="•••"
+                            inputmode="numeric"
+                        >
+                    </div>
+                </div>
+
+                <div class="payment-v2-field payment-v2-full">
+                    <label for="cardHolder">Ім’я власника картки</label>
+                    <input
+                        type="text"
+                        id="cardHolder"
+                        placeholder="ANGELINA PANASIUK"
+                    >
+                </div>
+
+                <div class="payment-v2-note">
+                    <span>🔒</span>
+                    <p>Платіж обробляється захищено.</p>
+                </div>
+
+                <button id="payOrderBtn" class="payment-v2-btn">
+                    Оплатити замовлення
+                </button>
+
+            </div>
+        </div>
+
+        <div class="payment-v2-right">
+
+            <div class="payment-v2-bank-card">
+                <div class="payment-v2-card-top">
+                    <span class="payment-v2-chip"></span>
+                    <span class="payment-v2-brand">BookPay</span>
+                </div>
+
+                <div class="payment-v2-card-number">
+                    •••• &nbsp; •••• &nbsp; •••• &nbsp; 4821
+                </div>
+
+                <div class="payment-v2-card-bottom">
+                    <div>
+                        <span>Власник</span>
+                        <strong>BOOKSTORE CLIENT</strong>
+                    </div>
+
+                    <div>
+                        <span>Дійсна до</span>
+                        <strong>12/28</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-v2-benefits">
+                <h2>Після оплати</h2>
+
+                <div class="payment-v2-benefit">
+                    <span>✓</span>
+                    <p>Замовлення позначається як оплачене.</p>
+                </div>
+
+                <div class="payment-v2-benefit">
+                    <span>✓</span>
+                    <p>Дані одразу оновлюються в адмінпанелі.</p>
+                </div>
+
+                <div class="payment-v2-benefit">
+                    <span>✓</span>
+                    <p>Покупка зберігається в історії замовлень.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div class="toast validation-toast" id="paymentValidationToast">
+    <p>Заповніть усі платіжні дані коректно</p>
+</div>
+
+<div class="toast" id="paymentSuccessToast">
+    <p>✓ Оплату успішно здійснено</p>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

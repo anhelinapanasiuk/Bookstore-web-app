@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмін-панель | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header admin-header">
+    <div class="logo">BookStore</div>
+
+    <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </nav>
+
+    <div class="admin-profile">
+        <span>Адміністратор BookStore</span>
+        <button id="logoutBtn" class="logout-btn">Вийти</button>
+    </div>
+</header>
+
+<main class="premium-admin-page">
+
+    <section class="admin-title-section">
+        <div>
+            <p class="admin-subtitle">Панель керування</p>
+            <h1>Адміністративна панель</h1>
+            <p class="admin-description">
+                Керування каталогом книг, замовленнями, користувачами та зверненнями клієнтів.
+            </p>
+        </div>
+    </section>
+
+    <!-- АНАЛІТИЧНІ КАРТКИ -->
+    <section class="dashboard-cards">
+
+        <article class="dashboard-card" id="booksStatCard">
+            <div class="dashboard-card-icon">📚</div>
+            <div>
+                <h3 id="booksStatCount">12</h3>
+                <p>Книг у каталозі</p>
+            </div>
+        </article>
+
+        <article class="dashboard-card" id="ordersStatCard">
+            <div class="dashboard-card-icon">🛍️</div>
+            <div>
+                <h3 id="ordersStatCount">0</h3>
+                <p>Замовлень</p>
+            </div>
+        </article>
+
+        <article class="dashboard-card" id="usersStatCard">
+            <div class="dashboard-card-icon">👤</div>
+            <div>
+                <h3 id="usersStatCount">0</h3>
+                <p>Користувачів</p>
+            </div>
+        </article>
+
+        <article class="dashboard-card" id="messagesStatCard">
+            <div class="dashboard-card-icon">✉️</div>
+            <div>
+                <h3 id="messagesStatCount">0</h3>
+                <p>Повідомлень</p>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- МІНІ-АНАЛІТИКА -->
+    <section class="admin-analytics-panel" id="analyticsSection">
+
+        <div class="admin-section-heading">
+            <div>
+                <p class="section-label">Аналітика</p>
+                <h2>Стан роботи магазину</h2>
+            </div>
+        </div>
+
+        <div class="analytics-grid">
+
+            <article class="analytics-main-card">
+                <p>Загальна сума замовлень</p>
+                <h3 id="ordersRevenue">0 грн</h3>
+            </article>
+
+            <article class="analytics-status-card">
+                <span>В обробці</span>
+                <strong id="processingOrdersCount">0</strong>
+            </article>
+
+            <article class="analytics-status-card">
+                <span>Очікують оплату</span>
+                <strong id="waitingPaymentOrdersCount">0</strong>
+            </article>
+
+            <article class="analytics-status-card">
+                <span>Оплачено</span>
+                <strong id="paidOrdersCount">0</strong>
+            </article>
+
+            <article class="analytics-status-card">
+                <span>Відправлено</span>
+                <strong id="shippedOrdersCount">0</strong>
+            </article>
+
+            <article class="analytics-status-card">
+                <span>Завершено</span>
+                <strong id="completedOrdersCount">0</strong>
+            </article>
+
+            <article class="analytics-status-card">
+                <span>Скасовано</span>
+                <strong id="cancelledOrdersCount">0</strong>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- КЕРУВАННЯ КНИГАМИ -->
+    <section class="admin-management-section" id="booksManagementSection">
+
+        <div class="admin-section-heading section-with-action">
+            <div>
+                <p class="section-label">Каталог</p>
+                <h2>Керування книгами</h2>
+            </div>
+
+            <button class="primary-admin-btn" id="addBookBtn">
+                + Додати книгу
+            </button>
+        </div>
+
+        <div class="admin-table-wrapper books-scroll">
+            <table class="premium-admin-table" id="booksTable">
+               <thead>
+    <tr>
+        <th>Назва</th>
+        <th>Автор</th>
+        <th>Категорія</th>
+        <th>Ціна</th>
+        <th>Наявність</th>
+        <th>Опис</th>
+        <th>Обкладинка</th>
+        <th>Дії</th>
+    </tr>
+</thead>
+
+                <tbody>
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Захар Беркут"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Іван Франко"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="350 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Ворошиловоград"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Сергій Жадан"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option selected>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="450 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Тигролови"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Іван Багряний"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option selected>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="390 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Тіні забутих предків"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Михайло Коцюбинський"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="320 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Мина Мазайло"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Микола Куліш"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option>Класика</option>
+                                <option>Поезія</option>
+                                <option selected>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="280 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Місто"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Валер’ян Підмогильний"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option selected>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="410 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Лісова пісня"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Леся Українка"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option>Класика</option>
+                                <option>Поезія</option>
+                                <option selected>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="340 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Кобзар"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Тарас Шевченко"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option>Класика</option>
+                                <option selected>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="500 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Камінний хрест"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Василь Стефаник"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="260 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Кайдашева сім’я"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Іван Нечуй-Левицький"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="330 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Intermezzo"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Михайло Коцюбинський"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="290 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="admin-edit-input book-title-input" value="Хіба ревуть воли, як ясла повні?"></td>
+                        <td><input class="admin-edit-input book-author-input" value="Панас Мирний"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>Класика</option>
+                                <option>Поезія</option>
+                                <option>Драма</option>
+                                <option>Сучасна література</option>
+                                <option>Інше</option>
+                            </select>
+                        </td>
+                        <td><input class="admin-edit-input price-input" value="470 грн"></td>
+                        <td>
+                            <select class="admin-edit-select">
+                                <option selected>В наявності</option>
+                                <option>Немає в наявності</option>
+                            </select>
+                        </td>
+                        <td class="action-cell">
+                            <button class="table-save-btn">Зберегти</button>
+                            <button class="table-delete-btn">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- КЕРУВАННЯ ЗАМОВЛЕННЯМИ -->
+    <section class="admin-management-section" id="ordersManagementSection">
+
+        <div class="admin-section-heading">
+            <div>
+                <p class="section-label">Продажі</p>
+                <h2>Усі замовлення</h2>
+            </div>
+        </div>
+
+        <div class="admin-table-wrapper orders-scroll">
+            <table class="premium-admin-table orders-table" id="ordersTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Клієнт</th>
+                        <th>Телефон</th>
+                        <th>Email</th>
+                        <th>Адреса доставки</th>
+                        <th>Книги</th>
+                        <th>Сума товарів</th>
+                        <th>Доставка</th>
+                        <th>До оплати</th>
+                        <th>Оплата</th>
+                        <th>Статус</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+
+                <tbody id="adminOrders">
+                    <!-- Нові замовлення автоматично з’являтимуться тут -->
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- ПОВІДОМЛЕННЯ КЛІЄНТІВ -->
+    <section class="admin-management-section" id="messagesManagementSection">
+
+        <div class="admin-section-heading">
+            <div>
+                <p class="section-label">Звернення</p>
+                <h2>Повідомлення від клієнтів</h2>
+            </div>
+        </div>
+
+        <div class="admin-table-wrapper messages-scroll">
+            <table class="premium-admin-table" id="messagesTable">
+                <thead>
+                    <tr>
+                        <th>Ім’я</th>
+                        <th>Email</th>
+                        <th>Повідомлення</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+
+                <tbody id="adminMessages">
+                    <!-- Повідомлення з контактної форми будуть тут -->
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- КОРИСТУВАЧІ -->
+    <section class="admin-management-section" id="usersManagementSection">
+
+        <div class="admin-section-heading">
+            <div>
+                <p class="section-label">Користувачі</p>
+                <h2>Зареєстровані користувачі</h2>
+            </div>
+        </div>
+
+        <div class="admin-table-wrapper users-scroll">
+            <table class="premium-admin-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th>Ім’я</th>
+                        <th>Email</th>
+                        <th>Роль</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+
+                <tbody id="adminUsers">
+                    <!-- Зареєстровані користувачі будуть тут -->
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+<div class="toast" id="adminToast">
+    <p>✓ Зміни збережено</p>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

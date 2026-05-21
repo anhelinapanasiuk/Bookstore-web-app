@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакти | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+    <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html" class="active-link">Контакти</a>
+        <a href="login.html">Вхід</a>
+    </nav>
+</header>
+
+<main class="contacts-page">
+
+    <h1>Контакти</h1>
+
+    <div class="contacts-layout">
+
+        <section class="contacts-info">
+            <h2>BookStore</h2>
+
+            <p>
+                BookStore — онлайн-книжковий магазин української літератури.
+                Замовлення приймаються через сайт із доставкою по всій Україні.
+            </p>
+
+            <div class="contact-item">
+                <strong>Формат роботи:</strong>
+                <span>онлайн-магазин із доставкою</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>Місто:</strong>
+                <span>м. Львів</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>Телефон:</strong>
+                <span>+380 99 123 45 67</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>Email:</strong>
+                <span>bookstore@gmail.com</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>Графік обробки замовлень:</strong>
+                <span>Пн–Сб: 09:00–19:00</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>Доставка:</strong>
+                <span>Нова пошта по Україні</span>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Написати нам</h2>
+
+            <p class="contact-form-note">
+                Маєте запитання щодо книги, замовлення або доставки?
+                Залиште повідомлення, і адміністратор його опрацює.
+            </p>
+
+            <div class="contact-form-group">
+                <label for="contactName">
+                    Ваше ім’я <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="contactName"
+                    placeholder="Введіть ім’я"
+                >
+            </div>
+
+            <div class="contact-form-group">
+                <label for="contactEmail">
+                    Email <span class="required-mark">*</span>
+                </label>
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="example@gmail.com"
+                >
+            </div>
+
+            <div class="contact-form-group">
+                <label for="contactMessage">
+                    Повідомлення <span class="required-mark">*</span>
+                </label>
+                <textarea
+                    id="contactMessage"
+                    placeholder="Напишіть ваше повідомлення"
+                ></textarea>
+            </div>
+
+            <button id="sendContactMessageBtn">
+                Надіслати повідомлення
+            </button>
+        </section>
+
+    </div>
+
+</main>
+
+<div class="toast validation-toast" id="contactValidationToast">
+    <p>Заповніть усі обов’язкові поля</p>
+</div>
+
+<div class="toast" id="contactSuccessToast">
+    <p>✓ Повідомлення успішно надіслано</p>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

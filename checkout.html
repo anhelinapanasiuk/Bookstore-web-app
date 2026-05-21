@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформлення замовлення | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+   <nav class="nav">
+    <a href="index.html">Головна</a>
+    <a href="catalog.html">Каталог</a>
+    <a href="cart.html">Кошик</a>
+    <a href="contacts.html">Контакти</a>
+    <a href="login.html">Вхід</a>
+</nav>
+</header>
+
+<main class="checkout-page">
+
+    <h1>Оформлення замовлення</h1>
+
+    <p class="required-note">
+        Поля, позначені <span>*</span>, є обов’язковими для заповнення.
+    </p>
+
+    <div class="checkout-layout">
+
+        <section class="checkout-form">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="customerFirstName">
+                        Ім’я <span class="required-mark">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="customerFirstName"
+                        placeholder="Введіть ім’я"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="customerLastName">
+                        Прізвище <span class="required-mark">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="customerLastName"
+                        placeholder="Введіть прізвище"
+                    >
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="customerPhone">
+                        Номер телефону <span class="required-mark">*</span>
+                    </label>
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        value="+380"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="customerEmail">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        placeholder="example@gmail.com"
+                    >
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="customerCity">
+                        Місто доставки <span class="required-mark">*</span>
+                    </label>
+                    <input
+                        list="citiesList"
+                        id="customerCity"
+                        placeholder="Почніть вводити місто"
+                    >
+
+                    <datalist id="citiesList">
+                        <option value="Київ">
+                        <option value="Львів">
+                        <option value="Рівне">
+                        <option value="Тернопіль">
+                        <option value="Івано-Франківськ">
+                        <option value="Луцьк">
+                        <option value="Ужгород">
+                        <option value="Чернівці">
+                        <option value="Вінниця">
+                        <option value="Житомир">
+                        <option value="Хмельницький">
+                        <option value="Черкаси">
+                        <option value="Кропивницький">
+                        <option value="Полтава">
+                        <option value="Суми">
+                        <option value="Чернігів">
+                        <option value="Харків">
+                        <option value="Дніпро">
+                        <option value="Запоріжжя">
+                        <option value="Одеса">
+                        <option value="Миколаїв">
+                        <option value="Херсон">
+                        <option value="Дрогобич">
+                        <option value="Стрий">
+                        <option value="Червоноград">
+                        <option value="Трускавець">
+                        <option value="Коломия">
+                        <option value="Мукачево">
+                        <option value="Біла Церква">
+                        <option value="Бровари">
+                        <option value="Ірпінь">
+                        <option value="Буча">
+                        <option value="Кам’янець-Подільський">
+                        <option value="Кременчук">
+                        <option value="Кривий Ріг">
+                        <option value="Ніжин">
+                        <option value="Прилуки">
+                    </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerBranch">
+                        Відділення Нової пошти <span class="required-mark">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="customerBranch"
+                        placeholder="Наприклад: Відділення №12"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Спосіб оплати</label>
+
+                <div class="payment-options">
+                    <label class="payment-label">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Оплата при отриманні"
+                            checked
+                        >
+                        <span>Оплата при отриманні</span>
+                    </label>
+
+                    <label class="payment-label">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Оплата карткою онлайн"
+                        >
+                        <span>Оплата карткою онлайн</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="customerComment">Коментар до замовлення</label>
+                <textarea
+                    id="customerComment"
+                    placeholder="За потреби додайте уточнення до замовлення"
+                ></textarea>
+            </div>
+
+        </section>
+
+        <aside class="checkout-summary">
+
+            <h2>Ваше замовлення</h2>
+
+            <div id="checkoutItems"></div>
+
+            <div class="summary-row">
+                <span>Разом</span>
+                <strong id="checkoutTotal">0 грн</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Доставка</span>
+                <strong id="deliveryPrice">0 грн</strong>
+            </div>
+
+            <div class="summary-final">
+                <p>Усього до оплати</p>
+                <h3 id="checkoutFinal">0 грн</h3>
+            </div>
+
+            <button class="confirm-btn" id="confirmOrder">
+                Підтвердити замовлення
+            </button>
+
+        </aside>
+
+    </div>
+
+</main>
+
+<div class="toast" id="orderToast">
+    <p>✓ Замовлення успішно оформлено</p>
+    <a href="catalog.html">Повернутися до каталогу</a>
+</div>
+
+<div class="toast validation-toast" id="validationToast">
+    <p>Заповніть усі обов’язкові поля</p>
+</div>
+
+<footer class="footer">
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>Онлайн-магазин української літератури для сучасних читачів.</p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

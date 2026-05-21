@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Кошик | BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">BookStore</div>
+
+<nav class="nav">
+    <a href="index.html">Головна</a>
+    <a href="catalog.html">Каталог</a>
+    <a href="cart.html" class="active-link">Кошик</a>
+    <a href="contacts.html">Контакти</a>
+    <a href="login.html">Вхід</a>
+</nav>
+</header>
+
+<main class="cart-page">
+    <h1>Кошик</h1>
+
+    <div class="cart-layout">
+
+        <section class="cart-items" id="cartItems">
+            <!-- Тут будуть книги з кошика -->
+        </section>
+
+        <aside class="cart-summary">
+            <h2>Підсумок замовлення</h2>
+
+            <div class="summary-row">
+                <span>Товарів:</span>
+                <strong id="cartCount">0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Сума:</span>
+                <strong id="cartTotal">0 грн</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Доставка:</span>
+                <strong id="deliveryCart">0 грн</strong>
+            </div>
+
+            <div class="summary-final">
+                <p>Загальна сума</p>
+                <h3 id="finalTotal">0 грн</h3>
+            </div>
+
+            <a href="checkout.html" class="checkout-btn">Оформити замовлення</a>
+        </aside>
+
+    </div>
+</main>
+
+<script src="js/script.js"></script>
+</body>
+<div class="toast" id="removeCartToast">
+    <p>✓ Книгу видалено з кошика</p>
+</div>
+<footer class="footer">
+
+    <div class="footer-logo">
+        <h2>BookStore</h2>
+        <p>
+            Онлайн-магазин української літератури
+            для сучасних читачів.
+        </p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Навігація</h3>
+
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="cart.html">Кошик</a>
+        <a href="contacts.html">Контакти</a>
+    </div>
+
+    <div class="footer-contacts">
+        <h3>Контакти</h3>
+
+        <p>+380 99 123 45 67</p>
+        <p>bookstore@gmail.com</p>
+        <p>м. Львів</p>
+    </div>
+   
+    <script src="js/script.js"></script>
+
+</footer>
+</html>
